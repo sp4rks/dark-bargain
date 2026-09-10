@@ -1,0 +1,579 @@
+/* Dark Bargain: a CSS-only theme layer for OzBargain. */
+
+html {
+  --db-bg: #171819;
+  --db-surface: #202223;
+  --db-surface-raised: #27292a;
+  --db-line: #3a3d3e;
+  --db-line-soft: #2d3031;
+  --db-text: #eeeae5;
+  --db-text-soft: #cecfca;
+  --db-muted: #a9aaa7;
+  --db-orange: #f4a052;
+  --db-orange-soft: #8f5d32;
+
+  /* OzBargain's existing components consume these variables. */
+  --border-clr: var(--db-line) !important;
+  --borderhl-clr: #5b5f60 !important;
+  --comment-hl-bg: #263541 !important;
+  --comment-op-bg: #34291f !important;
+  --comment-user-bg: #252f2b !important;
+  --footer-bg: #111212 !important;
+  --footer-fg: var(--db-muted) !important;
+  --input-fg: var(--db-text) !important;
+  --input-bg: #141617 !important;
+  --input-border: var(--db-line) !important;
+  --light-bg: var(--db-surface) !important;
+  --light2-bg: #1b1d1e !important;
+  --link-fg: #f2bc80 !important;
+  --link2-fg: #ffd09b !important;
+  --linkv-fg: #e8b477 !important;
+  --menu-fg: var(--db-text) !important;
+  --menuhl-fg: #21180f !important;
+  --menuhl-bg: var(--db-orange) !important;
+  --meta-fg: var(--db-muted) !important;
+  --meta-emphasis-fg: var(--db-text-soft) !important;
+  --navmenu-bg: #191b1c !important;
+  --overlay-border-clr: var(--db-line) !important;
+  --page-bg: var(--db-bg) !important;
+  --page-fg: var(--db-text) !important;
+  --pageads-bg: #20222399 !important;
+  --scrollbar-clr: #858887 #202223 !important;
+  --shade1-bg: #574025 !important;
+  --shade2-bg: #74491f !important;
+  --shade3-bg: #9e5f27 !important;
+  --shadow-bg: #00000066 !important;
+  --tag-fg: #21180f !important;
+  --titlehl-fg: #ffc486 !important;
+  --votedown-clr: #e58172 !important;
+  --voteup-clr: #9ac79d !important;
+}
+
+html,
+body {
+  background: var(--db-bg) !important;
+  color: var(--db-text) !important;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif !important;
+}
+
+a,
+a:visited {
+  color: var(--link-fg);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--link2-fg);
+}
+
+button,
+input,
+select,
+textarea {
+  color: var(--input-fg);
+  background-color: var(--input-bg);
+  border-color: var(--input-border);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--db-orange) !important;
+  outline-offset: 2px;
+}
+
+/* Site chrome */
+
+#header {
+  background: var(--db-surface) !important;
+  border-bottom: 1px solid var(--db-line);
+  box-shadow: 0 3px 12px var(--shadow-bg) !important;
+}
+
+#header2nd {
+  background: #191b1c !important;
+  border-bottom: 1px solid var(--db-line-soft);
+  box-shadow: none !important;
+}
+
+#header2nd ul > li > a {
+  color: var(--db-muted) !important;
+  padding: 7px 8px;
+}
+
+#header2nd ul > li > a.active,
+#header2nd ul > li > a:hover {
+  background: var(--db-orange) !important;
+  color: #21180f !important;
+}
+
+#menu > li > a {
+  color: var(--db-text) !important;
+}
+
+#menu > li:hover > a,
+#menu > li.hovered > a {
+  background: var(--db-orange) !important;
+  color: #21180f !important;
+}
+
+#menu > li.active > a {
+  background: #2d2f30 !important;
+  color: var(--db-orange) !important;
+}
+
+#header form.search {
+  background: var(--db-bg);
+  border: 1px solid var(--db-line);
+  border-radius: 5px;
+  padding: 1px 3px;
+}
+
+#header form.search input,
+#header form.search button {
+  background: transparent;
+  border: 0;
+}
+
+div.wrap {
+  max-width: 1540px;
+  padding-left: 26px;
+  padding-right: 26px;
+}
+
+/* Main feed and deal pages */
+
+main {
+  background: var(--db-bg);
+}
+
+body.d.s main > div.wrap {
+  display: flow-root;
+}
+
+body.d.s main div.main {
+  width: calc(100% - 326px) !important;
+}
+
+body.d.s main div.sidebar {
+  width: 300px !important;
+  margin-left: 26px !important;
+}
+
+#title,
+h1.title {
+  color: var(--db-text) !important;
+  font-size: clamp(1.45rem, 2.2vw, 2rem) !important;
+  line-height: 1.25 !important;
+  margin: 20px 0 10px !important;
+}
+
+h2.section {
+  border-bottom-color: var(--db-line) !important;
+  color: var(--db-text-soft) !important;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  padding: 10px 0 9px;
+}
+
+div.node,
+div.nodeinfo,
+div.nodefooter {
+  color: var(--db-text);
+}
+
+div.node-teaser {
+  border-bottom-color: var(--db-line-soft) !important;
+  padding: 18px 0;
+}
+
+div.node h2.title,
+div.node h2.title a {
+  color: var(--db-text) !important;
+  font-size: 1.08rem !important;
+  line-height: 1.4 !important;
+}
+
+div.node h2.title a:hover {
+  color: var(--db-orange) !important;
+}
+
+div.node div.content,
+div.node-page div.content {
+  color: var(--db-text-soft);
+}
+
+div.node div.submitted,
+div.node div.submitted a,
+div.node .via,
+div.node .nodeclicks {
+  color: var(--db-muted);
+}
+
+div.node div.links,
+div.node div.links a,
+div.nodefooter .actions,
+div.nodefooter .actions a,
+div.taxonomy,
+div.taxonomy a {
+  color: var(--db-muted);
+}
+
+div.node div.links a:hover,
+div.nodefooter .actions a:hover,
+div.taxonomy a:hover {
+  color: var(--db-orange);
+}
+
+div.node div.n-right div.right {
+  margin-left: 16px;
+}
+
+div.node div.n-right div.foxshot-container a,
+div.node-page div.foxshot-container a {
+  background: var(--db-surface);
+  border-color: var(--db-line) !important;
+  border-radius: 6px;
+}
+
+div.node-page div.n-right div.right {
+  margin-left: 22px;
+}
+
+div.node-page div.content p,
+div.node-page div.content blockquote {
+  max-width: 78ch;
+}
+
+div.node-page div.content blockquote {
+  background: var(--db-surface);
+  border-left: 3px solid var(--db-orange-soft);
+  color: var(--db-text-soft);
+  margin-left: 0;
+  padding: 10px 16px;
+}
+
+div.nodeinfo div.extra,
+div.bigbox,
+div.messages,
+div.comment-hint {
+  background: var(--db-surface) !important;
+  border-color: var(--db-line) !important;
+  color: var(--db-text-soft) !important;
+}
+
+div.nodeinfo div.extra a {
+  color: var(--db-orange);
+}
+
+div.nodefooter {
+  border-top: 1px solid var(--db-line-soft);
+  padding-top: 14px;
+}
+
+div.ads,
+div.adstest {
+  background: var(--pageads-bg) !important;
+  border-color: var(--db-line-soft) !important;
+  color: var(--db-muted) !important;
+}
+
+/* Vote controls */
+
+div.n-vote span.nvb,
+div.c-vote span.cvb,
+div.comment span.cvb {
+  border-color: var(--db-line) !important;
+  color: var(--db-muted);
+}
+
+div.n-vote span.voteup,
+div.c-vote span.voteup,
+div.comment span.voteup {
+  color: var(--voteup-clr) !important;
+}
+
+div.n-vote span.votedown,
+div.c-vote span.votedown,
+div.comment span.votedown {
+  color: var(--votedown-clr) !important;
+}
+
+div.n-vote span.nvb:hover,
+div.c-vote span.cvb:hover {
+  background: var(--db-surface-raised) !important;
+}
+
+/* Comments: preserve OzBargain's nested lists, but give each message room. */
+
+h2#comment {
+  margin-top: 26px;
+}
+
+ul.comment {
+  border: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.comment ul.comment {
+  border-left: 2px solid var(--db-line);
+  margin-left: 20px;
+  padding-left: 18px;
+}
+
+div.comment-wrap {
+  border-bottom: 1px solid var(--db-line-soft);
+  margin-left: -20px;
+  padding: 16px 0 16px 20px;
+}
+
+div.comment-wrap:hover {
+  background: #1b1d1e;
+}
+
+div.comment div.meta,
+div.comment div.submitted,
+div.comment div.submitted a {
+  color: var(--db-muted);
+}
+
+div.comment div.submitted strong a {
+  color: var(--db-text) !important;
+}
+
+div.comment div.submitted strong a:hover {
+  color: var(--db-orange) !important;
+}
+
+div.comment div.content {
+  color: var(--db-text-soft);
+  line-height: 1.6;
+  max-width: 78ch;
+}
+
+div.comment div.content p {
+  margin: 9px 0;
+}
+
+div.comment-op {
+  background: linear-gradient(110deg, #34291f, var(--db-bg)) !important;
+  border: 1px solid #80532e !important;
+  border-radius: 5px;
+  margin: -5px;
+  padding: 10px 9px;
+}
+
+div.comment-owner,
+div.comment-hl {
+  background: linear-gradient(110deg, #252f2b, var(--db-bg)) !important;
+  border-color: #405a4e !important;
+  border-radius: 5px;
+  margin: -5px;
+  padding: 10px 9px;
+}
+
+div.comment div.links,
+div.comment ul.links {
+  color: var(--db-muted);
+  margin-top: 6px;
+}
+
+div.comment ul.links a {
+  color: var(--db-muted);
+}
+
+div.comment ul.links a:hover {
+  background: var(--db-surface-raised) !important;
+  color: var(--db-orange);
+}
+
+div.comment-guest {
+  background: var(--db-surface);
+  border: 1px solid var(--db-line);
+  border-radius: 5px;
+  color: var(--db-text-soft);
+  margin-top: 16px;
+}
+
+/* Sidebar and small surfaces */
+
+div.sidebar .block,
+div.sidebar .blockcontent,
+div.sidebar .domainprofile,
+div.sidebar .random-discussion {
+  background: var(--db-surface);
+  border-color: var(--db-line);
+}
+
+div.sidebar .block {
+  border: 1px solid var(--db-line);
+  border-radius: 5px;
+  margin-bottom: 16px;
+  padding: 13px 15px;
+}
+
+div.sidebar .blocktitle {
+  border-bottom: 1px solid var(--db-line);
+  color: var(--db-text-soft);
+  padding-bottom: 9px;
+}
+
+div.sidebar .blockcontent,
+div.sidebar .spacer,
+div.sidebar .blockcontent a {
+  color: var(--db-muted);
+}
+
+div.sidebar .blockcontent a:hover {
+  color: var(--db-orange);
+}
+
+article.storeprofile div.name {
+  background-image: linear-gradient(to top, #000000cc, #00000000);
+}
+
+/* Forms, menus and popovers */
+
+input.form-text,
+textarea,
+select,
+input[type="text"],
+input[type="search"] {
+  background: var(--input-bg) !important;
+  border: 1px solid var(--input-border) !important;
+  border-radius: 4px;
+  color: var(--input-fg) !important;
+}
+
+div.menupopup,
+div.ac-result,
+ul.tooltip-menu,
+div.tooltip {
+  background: var(--db-surface) !important;
+  border-color: var(--db-line) !important;
+  color: var(--db-text) !important;
+  box-shadow: 0 8px 24px #00000066 !important;
+}
+
+div.menupopup a,
+ul.tooltip-menu a,
+div.ac-result li {
+  color: var(--db-text-soft) !important;
+}
+
+div.menupopup a:hover,
+ul.tooltip-menu a:hover,
+div.ac-result li:hover,
+div.ac-result li.active {
+  background: var(--db-orange) !important;
+  color: #21180f !important;
+}
+
+span.tag,
+span.marker,
+span.targeted,
+a.badge,
+span.userbadge {
+  background: var(--db-orange-soft) !important;
+  border-color: var(--db-orange-soft) !important;
+  color: #fff1df !important;
+}
+
+/* Keep the existing mobile layout, with a little more breathing room. */
+
+@media (max-width: 820px) {
+  div.wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  body.d.s main div.main,
+  body.d.s main div.sidebar {
+    float: none !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  body.d.s main div.sidebar {
+    margin-top: 22px !important;
+  }
+
+  div.node-page div.n-right div.right {
+    float: none;
+    margin: 0 0 14px;
+  }
+
+  div.node-page div.n-right div.right .foxshot-container a {
+    height: auto;
+    max-height: 360px;
+    width: 100%;
+  }
+
+  ul.comment ul.comment {
+    margin-left: 8px;
+    padding-left: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  div.wrap {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  #header div.wrap.flex {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  #header form.search {
+    order: 0;
+    width: 100%;
+  }
+
+  #menu {
+    margin-left: 0;
+    overflow-x: auto;
+  }
+
+  #menu > li > a {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  div.n-right,
+  div.comment div.n-right {
+    margin-left: 0;
+  }
+
+  div.n-left {
+    margin-right: 6px;
+  }
+
+  div.node-page div.n-right div.right {
+    margin-left: 0;
+  }
+
+  div.comment-wrap {
+    margin-left: -10px;
+    padding-left: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

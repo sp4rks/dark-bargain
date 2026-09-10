@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Dark Bargain",
+  "description": "A calmer dark theme for OzBargain.",
+  "version": "0.1.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "dark-bargain@local",
+      "strict_min_version": "109.0"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.ozbargain.com.au/*",
+        "https://ozbargain.com.au/*"
+      ],
+      "css": ["dark-bargain.css"],
+      "run_at": "document_start"
+    }
+  ]
+}
