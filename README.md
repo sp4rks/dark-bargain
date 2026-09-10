@@ -14,6 +14,5 @@ elements. Links, voting, comments and menus retain their original controls.
 The extension is deliberately scoped to `ozbargain.com.au` and currently has no
 permissions or network access.
 
-Deal pages show a price when the headline has one unambiguous dollar amount,
-or a leading percentage discount. Multi-price and savings offers retain their
-full headline instead of guessing a price.
+Deal pages group the product image, store details, original deal link and cashback
+control in the sidebar. Prices and offer conditions remain in the full headline.

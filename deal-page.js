@@ -19,25 +19,8 @@
   body.prepend(title);
   const media = body.querySelector(':scope > .right');
   const goto = media?.querySelector('.gotodeal');
-  const offer = document.createElement('div');
-  offer.className = 'db-offer';
-
-  // Only lift an unambiguous offer; never turn a saving or minimum spend into a price.
-  const headline = title.dataset.title || title.textContent;
-  const prices = headline.match(/\$\d[\d,]*(?:\.\d{2})?/g) || [];
-  const percent = headline.match(/^\s*(\d+(?:\.\d+)?% off)\b/i);
-  // ponytail: conservative title heuristic; use structured prices if OzBargain exposes them.
-  const price = prices.length === 1 && !/\boff\b|\bspend\b|\bminimum\b|\bcashback\b|\bcredit\b|\bgift card\b|\bbonus\b|\bfrom\b|\bwas\b|\bsave\b|\/\s*(?:m|month|year|wk)\b/i.test(headline)
-    ? prices[0] : null;
-  if (percent || price) {
-    const amount = document.createElement('strong');
-    amount.className = 'db-offer-price';
-    amount.textContent = percent?.[1] || price;
-    offer.append(amount);
-  }
-  if (goto) offer.append(goto);
+  const cashback = media?.querySelector('.cashback');
   const submitted = body.querySelector(':scope > .submitted');
-  if (offer.childNodes.length) (submitted || title).after(offer);
 
   const sidebar = document.querySelector('main #sidebar');
   const stores = document.querySelector('section.relatedstores');
@@ -50,12 +33,14 @@
       card.append(stores);
       document.querySelector('#relatedstores')?.remove();
     }
+    if (goto) card.append(goto);
+    if (cashback) card.append(cashback);
     sidebar.prepend(card);
   }
 
   const metadata = document.querySelector('.nodefooter .nodemeta');
   if (metadata) {
     metadata.classList.add('db-deal-actions');
-    (offer.isConnected ? offer : submitted || title).after(metadata);
+    (submitted || title).after(metadata);
   }
 })();

@@ -983,26 +983,11 @@ div.node span.nodefreebie i {
   line-height: 1.6;
 }
 
-.db-deal-page .db-offer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 14px;
-  background: var(--db-surface);
-  border: 1px solid var(--db-line);
-  border-radius: 5px;
-  padding: 14px 16px;
-  margin: 18px 0 12px;
-}
-
-.db-deal-page .db-offer-price {
-  font-size: 25px;
-  font-weight: var(--db-weight-strong);
-}
-
-.db-deal-page .db-offer .gotodeal a {
-  width: auto;
+.db-deal-page .db-store-card .gotodeal a {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
   margin: 0;
   padding: 10px 16px;
   background: var(--db-orange);
@@ -1013,6 +998,9 @@ div.node span.nodefreebie i {
 }
 
 .db-deal-page .db-store-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   background: var(--db-surface);
   border-radius: 5px;
   padding: 16px;
@@ -1031,19 +1019,49 @@ div.node span.nodefreebie i {
 }
 
 .db-deal-page .db-store-card .cashback {
-  margin-top: 10px;
+  margin: 0;
+}
+
+.db-deal-page .db-store-card .cashback > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--db-line);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--db-muted);
+  font-size: var(--db-size-meta);
+  font-weight: var(--db-weight-normal);
+}
+
+.db-deal-page .db-store-card .cashback img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-right: 3px;
+}
+
+.db-deal-page .db-store-card .cashback > a:hover {
+  background: var(--db-surface-raised);
+  color: var(--db-text);
 }
 
 .db-deal-page .db-store-card section.relatedstores {
   display: block;
-  margin: 16px 0 0;
+  margin: 0;
 }
 
 .db-deal-page .db-store-card article.storeprofile {
-  display: flex;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
   align-items: center;
   gap: 12px;
-  margin: 10px 0 0;
+  margin: 0 0 8px;
   width: auto;
 }
 
@@ -1059,6 +1077,33 @@ div.node span.nodefreebie i {
   padding: 0;
   width: auto;
   font-size: var(--db-size-body);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.db-deal-page .db-store-card article.storeprofile > .marker {
+  position: static;
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: start;
+  width: auto;
+  padding: 1px 5px;
+  background: transparent;
+  border: 1px solid var(--db-line);
+  border-radius: 3px;
+  color: var(--db-muted);
+  font-size: var(--db-size-small);
+  line-height: var(--db-leading);
+}
+
+.db-deal-page .db-store-card article.storeprofile > .foxshot-container {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.db-deal-page .db-store-card article.storeprofile > .name {
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .db-deal-page .db-store-card article.storeprofile .name a {
