@@ -17,6 +17,11 @@
       ],
       "css": ["dark-bargain.css"],
       "run_at": "document_start"
+    },
+    {
+      "matches": ["https://www.ozbargain.com.au/node/*", "https://ozbargain.com.au/node/*"],
+      "js": ["deal-page.js"],
+      "run_at": "document_idle"
     }
   ]
 }

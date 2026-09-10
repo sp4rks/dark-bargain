@@ -1,8 +1,8 @@
 # Dark Bargain
 
 A small Firefox extension that gives OzBargain a warmer, calmer dark theme. It
-is CSS-only, so OzBargain's links, voting, comments, menus and htmx updates keep
-their existing behaviour.
+uses a shared stylesheet and a small deal-page script that moves existing
+elements. Links, voting, comments and menus retain their original controls.
 
 ## Install locally
 
@@ -13,3 +13,7 @@ their existing behaviour.
 
 The extension is deliberately scoped to `ozbargain.com.au` and currently has no
 permissions or network access.
+
+Deal pages show a price when the headline has one unambiguous dollar amount,
+or a leading percentage discount. Multi-price and savings offers retain their
+full headline instead of guessing a price.
