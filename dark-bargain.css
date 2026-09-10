@@ -613,6 +613,94 @@ div.comment-guest {
   margin-top: 16px;
 }
 
+/* Both the main composer and dynamically inserted inline replies. */
+form.comment,
+form#comment_form {
+  box-sizing: border-box;
+  background: var(--db-surface);
+  border: 1px solid var(--db-line);
+  border-radius: 5px;
+  padding: 16px;
+  margin-top: 20px;
+  margin-bottom: 16px;
+  color: var(--db-text-soft);
+}
+
+:is(form.comment, form#comment_form) label {
+  color: var(--db-text);
+  font-size: var(--db-size-body);
+  font-weight: var(--db-weight-medium);
+  line-height: var(--db-leading);
+  margin-bottom: 8px;
+}
+
+:is(form.comment, form#comment_form) textarea.form-textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 110px;
+  padding: 12px;
+  background: var(--db-bg) !important;
+  border: 1px solid var(--db-line) !important;
+  border-radius: 4px;
+  color: var(--db-text) !important;
+  resize: vertical;
+}
+
+:is(form.comment, form#comment_form) textarea::placeholder {
+  color: var(--db-muted);
+  opacity: 1;
+}
+
+:is(form.comment, form#comment_form) :is(.description, .meta, .comment-hint) {
+  font-size: var(--db-size-meta);
+  line-height: var(--db-leading);
+  color: var(--db-muted);
+}
+
+:is(form.comment, form#comment_form) :is(.btn, input.form-submit) {
+  background: var(--db-surface-raised);
+  color: var(--db-text);
+  border: 1px solid var(--db-line);
+  border-radius: 4px;
+  padding: 9px 14px;
+  margin: 4px 6px 0 0;
+  font-weight: var(--db-weight-medium);
+  text-shadow: none;
+  box-shadow: none;
+}
+
+:is(form.comment, form#comment_form) :is(.btn-primary, input.form-submit) {
+  background: var(--db-orange);
+  border-color: var(--db-orange);
+  color: #21180f;
+}
+
+:is(form.comment, form#comment_form) :is(.btn, input.form-submit):hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+:is(form.comment, form#comment_form) :is(button, input, textarea):disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Keep validation visible despite the theme's general input border override. */
+:is(form.comment, form#comment_form) :is(textarea, input).error {
+  border: 2px solid var(--votedown-clr) !important;
+}
+
+@media (max-width: 480px) {
+  div.comment form.comment {
+    margin-left: 0;
+  }
+}
+
+@media (pointer: coarse) {
+  :is(form.comment, form#comment_form) textarea.form-textarea {
+    font-size: 16px !important;
+  }
+}
+
 /* Sidebar and small surfaces */
 
 div.sidebar .block,
@@ -731,6 +819,8 @@ div.ac-result li.active {
 span.tagger,
 span.marker,
 span.targeted,
+div.submitted span.role,
+ul.submitted span.role,
 a.badge,
 span.userbadge {
   background: transparent !important;
