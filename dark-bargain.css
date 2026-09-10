@@ -92,8 +92,40 @@ a:focus-visible {
 
 #header {
   background: var(--db-surface) !important;
+  border-top: 3px solid var(--db-orange) !important;
   border-bottom: 1px solid var(--db-line);
-  box-shadow: 0 3px 12px var(--shadow-bg) !important;
+  box-shadow: none !important;
+}
+
+/* Keep the original image's accessible name on the home link. */
+#header #logo > a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 650;
+  letter-spacing: -1.3px;
+  text-decoration: none;
+}
+
+#header #logo > a img {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+
+#header #logo > a::before {
+  content: "oz" / "";
+  color: var(--db-orange);
+}
+
+#header #logo > a::after {
+  content: "bargain" / "";
+  color: var(--db-text);
 }
 
 #header2nd {
@@ -115,6 +147,8 @@ a:focus-visible {
 
 #menu > li > a {
   color: var(--db-text) !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
 }
 
 #menu > li:hover > a,
@@ -180,6 +214,8 @@ h2.section {
   font-size: 1.15rem;
   letter-spacing: 0.02em;
   padding: 10px 0 9px;
+  text-transform: none !important;
+  font-weight: 600;
 }
 
 div.node,
@@ -189,15 +225,28 @@ div.nodefooter {
 }
 
 div.node-teaser {
-  border-bottom-color: var(--db-line-soft) !important;
+  border-bottom: 1px solid var(--db-line-soft) !important;
   padding: 18px 0;
 }
 
 div.node h2.title,
 div.node h2.title a {
   color: var(--db-text) !important;
-  font-size: 1.08rem !important;
+  font-size: 16px !important;
   line-height: 1.4 !important;
+  font-weight: 550 !important;
+}
+
+div.node-teaser div.content {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+div.node div.submitted,
+div.node div.submitted strong,
+div.node-teaser ul.links {
+  font-size: 12px !important;
+  font-weight: 400 !important;
 }
 
 div.node h2.title a:hover {
@@ -285,6 +334,58 @@ div.adstest {
 }
 
 /* Vote controls */
+
+div.node > .n-left > img.gravatar {
+  display: none;
+}
+
+div.node > .n-left > .n-vote:not(.n-vote-inline) {
+  display: flex;
+  flex-direction: column;
+  width: 38px;
+  overflow: hidden;
+  background: var(--db-surface);
+  border: 1px solid var(--db-line);
+  border-radius: 5px;
+}
+
+div.node > .n-left > .n-vote:not(.n-vote-inline) > span.nvb {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: transparent;
+  border: 0 !important;
+  border-radius: 0;
+  margin: 0;
+  padding: 4px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+div.node > .n-left > .n-vote:not(.n-vote-inline) > span.nvb i.fa {
+  position: static;
+  color: var(--db-muted);
+  font-size: 11px;
+  line-height: 18px;
+}
+
+div.node > .n-left > .n-vote:not(.n-vote-inline) > span.nvb span {
+  margin: 0;
+  line-height: 22px;
+}
+
+div.node > .n-left > .n-vote:not(.n-vote-inline) > span.votedown {
+  flex-direction: column-reverse;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+/* Keep the site's selected vote visible as well as both vote totals. */
+div.node > .n-left > .n-vote.voteup > span.voteup,
+div.node > .n-left > .n-vote.votedown > span.votedown {
+  background: var(--db-surface-raised);
+  box-shadow: inset 2px 0 currentColor;
+}
 
 div.n-vote span.nvb,
 div.c-vote span.cvb,
@@ -414,16 +515,53 @@ div.sidebar .random-discussion {
 }
 
 div.sidebar .block {
-  border: 1px solid var(--db-line);
+  border: 0 !important;
   border-radius: 5px;
   margin-bottom: 16px;
   padding: 13px 15px;
 }
 
-div.sidebar .blocktitle {
-  border-bottom: 1px solid var(--db-line);
-  color: var(--db-text-soft);
-  padding-bottom: 9px;
+div.sidebar div.block h3.blocktitle {
+  background: transparent !important;
+  border: 0 !important;
+  color: var(--db-text) !important;
+  font-size: 13px !important;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 0 0 12px;
+}
+
+div.sidebar .blockcontent {
+  border: 0 !important;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+div.sidebar .blockcontent.spacer,
+div.sidebar .blockcontent div.spacer {
+  padding: 5px 0;
+}
+
+div.sidebar .blockcontent h2,
+div.sidebar .blockcontent h3 {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+div.sidebar ul.meta > li.votes {
+  background: transparent !important;
+  color: var(--voteup-clr) !important;
+  font-size: 11px;
+  padding: 0;
+}
+
+div.sidebar ul.meta > li.votes-down {
+  color: var(--votedown-clr) !important;
+}
+
+div.sidebar ul.meta {
+  font-size: 11px;
 }
 
 div.sidebar .blockcontent,
@@ -477,14 +615,33 @@ div.ac-result li.active {
   color: #21180f !important;
 }
 
-span.tag,
+span.tagger,
 span.marker,
 span.targeted,
 a.badge,
 span.userbadge {
-  background: var(--db-orange-soft) !important;
-  border-color: var(--db-orange-soft) !important;
-  color: #fff1df !important;
+  background: transparent !important;
+  border: 1px solid var(--db-line) !important;
+  border-radius: 3px;
+  color: var(--db-orange) !important;
+  font-size: 11px !important;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 1px 5px;
+  text-transform: none !important;
+}
+
+div.node span.tag,
+div.node span.nodeexpiry span.marker,
+div.sidebar span.marker {
+  background: transparent !important;
+  border: 0 !important;
+  color: var(--db-muted) !important;
+  padding: 0;
+}
+
+div.node span.nodefreebie i {
+  color: var(--voteup-clr);
 }
 
 /* Keep the existing mobile layout, with a little more breathing room. */
