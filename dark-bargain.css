@@ -1,6 +1,21 @@
 /* Dark Bargain: a CSS-only theme layer for OzBargain. */
 
 html {
+  --db-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --db-mono: ui-monospace, "Cascadia Code", "Source Code Pro", monospace;
+  --db-size-small: 11px;
+  --db-size-meta: 12px;
+  --db-size-compact: 13px;
+  --db-size-body: 14px;
+  --db-size-title: 16px;
+  --db-size-section: 19px;
+  --db-size-page: clamp(22px, 2.2vw, 28px);
+  --db-weight-normal: 400;
+  --db-weight-medium: 500;
+  --db-weight-strong: 600;
+  --db-leading: 1.5;
+  --db-leading-title: 1.4;
+  --page-font: var(--db-size-body) !important;
   --db-bg: #171819;
   --db-surface: #202223;
   --db-surface-raised: #27292a;
@@ -56,8 +71,50 @@ body {
 }
 
 body {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif !important;
+  font-family: var(--db-font) !important;
+  font-size: var(--db-size-body) !important;
+  font-weight: var(--db-weight-normal);
+  line-height: var(--db-leading);
+}
+
+/* Normalize text families without overwriting Font Awesome or other icons. */
+:is(h1, h2, h3, h4, h5, h6, p, a, li, dt, dd, label, input, button,
+    select, textarea, table, th, td, summary, .ui-widget) {
+  font-family: var(--db-font) !important;
+}
+
+:is(input, button, select, textarea, table, .ui-widget) {
+  font-size: var(--db-size-body) !important;
+  line-height: var(--db-leading) !important;
+}
+
+:is(pre, code, kbd, samp, .couponcode, .couponcode strong) {
+  font-family: var(--db-mono) !important;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  font-weight: var(--db-weight-strong);
+  line-height: var(--db-leading-title);
+}
+
+:is(strong, b) {
+  font-weight: var(--db-weight-strong);
+}
+
+div.content,
+div.content2 {
+  font-size: var(--db-size-body);
+  line-height: var(--db-leading) !important;
+}
+
+:is(div.submitted, div.meta, ul.meta, .description, .timestamp) {
+  font-size: var(--db-size-meta);
+  line-height: var(--db-leading);
+}
+
+div.node div.couponcode {
+  font-size: var(--db-size-title) !important;
+  line-height: var(--db-leading) !important;
 }
 
 a,
@@ -147,8 +204,8 @@ a:focus-visible {
 
 #menu > li > a {
   color: var(--db-text) !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
+  font-size: var(--db-size-body) !important;
+  font-weight: var(--db-weight-medium) !important;
 }
 
 #menu > li:hover > a,
@@ -184,7 +241,7 @@ a:focus-visible {
   width: 100%;
   padding: 0;
   font: inherit;
-  font-size: 14px !important;
+  font-size: var(--db-size-body) !important;
   color: var(--db-text);
   box-shadow: none;
 }
@@ -240,7 +297,7 @@ body.d.s main div.sidebar {
 #title,
 h1.title {
   color: var(--db-text) !important;
-  font-size: clamp(1.45rem, 2.2vw, 2rem) !important;
+  font-size: var(--db-size-page) !important;
   line-height: 1.25 !important;
   margin: 20px 0 10px !important;
 }
@@ -248,11 +305,11 @@ h1.title {
 h2.section {
   border-bottom-color: var(--db-line) !important;
   color: var(--db-text-soft) !important;
-  font-size: 1.15rem;
+  font-size: var(--db-size-section);
   letter-spacing: 0.02em;
   padding: 10px 0 9px;
   text-transform: none !important;
-  font-weight: 600;
+  font-weight: var(--db-weight-strong);
 }
 
 div.node,
@@ -269,21 +326,21 @@ div.node-teaser {
 div.node h2.title,
 div.node h2.title a {
   color: var(--db-text) !important;
-  font-size: 16px !important;
-  line-height: 1.4 !important;
-  font-weight: 550 !important;
+  font-size: var(--db-size-title) !important;
+  line-height: var(--db-leading-title) !important;
+  font-weight: var(--db-weight-medium) !important;
 }
 
 div.node-teaser div.content {
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: var(--db-size-compact);
+  line-height: var(--db-leading);
 }
 
 div.node div.submitted,
 div.node div.submitted strong,
 div.node-teaser ul.links {
-  font-size: 12px !important;
-  font-weight: 400 !important;
+  font-size: var(--db-size-meta) !important;
+  font-weight: var(--db-weight-normal) !important;
 }
 
 div.node h2.title a:hover {
@@ -395,14 +452,14 @@ div.node > .n-left > .n-vote:not(.n-vote-inline) > span.nvb {
   border-radius: 0;
   margin: 0;
   padding: 4px 0;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: var(--db-size-title);
+  font-weight: var(--db-weight-strong);
 }
 
 div.node > .n-left > .n-vote:not(.n-vote-inline) > span.nvb i.fa {
   position: static;
   color: var(--db-muted);
-  font-size: 11px;
+  font-size: var(--db-size-small);
   line-height: 18px;
 }
 
@@ -413,8 +470,8 @@ div.node > .n-left > .n-vote:not(.n-vote-inline) > span.nvb span {
 
 div.node > .n-left > .n-vote:not(.n-vote-inline) > span.votedown {
   flex-direction: column;
-  font-size: 11px;
-  font-weight: 400;
+  font-size: var(--db-size-small);
+  font-weight: var(--db-weight-normal);
 }
 
 /* Keep the site's selected vote visible as well as both vote totals. */
@@ -450,8 +507,8 @@ div.n-vote span.nvb.votedown {
 
 div.n-vote span.nvb.votedown > span {
   white-space: nowrap;
-  font-size: 11px;
-  font-weight: 400;
+  font-size: var(--db-size-small);
+  font-weight: var(--db-weight-normal);
 }
 
 div.n-vote span.nvb.votedown > span::after {
@@ -508,7 +565,7 @@ div.comment div.submitted strong a:hover {
 
 div.comment div.content {
   color: var(--db-text-soft);
-  line-height: 1.6;
+  line-height: var(--db-leading);
   max-width: 78ch;
 }
 
@@ -577,16 +634,16 @@ div.sidebar div.block h3.blocktitle {
   background: transparent !important;
   border: 0 !important;
   color: var(--db-text) !important;
-  font-size: 13px !important;
-  font-weight: 600;
-  line-height: 1.5;
+  font-size: var(--db-size-compact) !important;
+  font-weight: var(--db-weight-strong);
+  line-height: var(--db-leading);
   padding: 0 0 12px;
 }
 
 div.sidebar .blockcontent {
   border: 0 !important;
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: var(--db-size-compact);
+  line-height: var(--db-leading);
 }
 
 div.sidebar .blockcontent.spacer,
@@ -596,15 +653,15 @@ div.sidebar .blockcontent div.spacer {
 
 div.sidebar .blockcontent h2,
 div.sidebar .blockcontent h3 {
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 1.5;
+  font-size: var(--db-size-compact);
+  font-weight: var(--db-weight-medium);
+  line-height: var(--db-leading);
 }
 
 div.sidebar ul.meta > li.votes {
   background: transparent !important;
   color: var(--voteup-clr) !important;
-  font-size: 11px;
+  font-size: var(--db-size-small);
   padding: 0;
 }
 
@@ -613,7 +670,7 @@ div.sidebar ul.meta > li.votes-down {
 }
 
 div.sidebar ul.meta {
-  font-size: 11px;
+  font-size: var(--db-size-small);
 }
 
 div.sidebar ul.ozblist > li {
@@ -680,9 +737,9 @@ span.userbadge {
   border: 1px solid var(--db-line) !important;
   border-radius: 3px;
   color: var(--db-orange) !important;
-  font-size: 11px !important;
-  font-weight: 400;
-  line-height: 1.5;
+  font-size: var(--db-size-small) !important;
+  font-weight: var(--db-weight-normal);
+  line-height: var(--db-leading);
   padding: 1px 5px;
   text-transform: none !important;
 }
