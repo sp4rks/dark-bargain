@@ -166,13 +166,50 @@ a:focus-visible {
   background: var(--db-bg);
   border: 1px solid var(--db-line);
   border-radius: 5px;
-  padding: 1px 3px;
+  padding: 8px 12px;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
 }
 
 #header form.search input,
 #header form.search button {
-  background: transparent;
-  border: 0;
+  background: transparent !important;
+  border: 0 !important;
+  color: var(--db-muted);
+}
+
+#header form.search input[type="text"] {
+  min-width: 0;
+  width: 100%;
+  padding: 0;
+  font: inherit;
+  font-size: 14px !important;
+  color: var(--db-text);
+  box-shadow: none;
+}
+
+#header form.search input::placeholder {
+  color: var(--db-muted);
+  opacity: 1;
+}
+
+#header form.search button {
+  order: -1;
+}
+
+#header form.search > a {
+  order: 1;
+  color: var(--db-muted);
+}
+
+#header form.search:focus-within {
+  outline: 2px solid var(--db-orange);
+  outline-offset: 2px;
+}
+
+#header form.search input:focus {
+  outline: none !important;
 }
 
 div.wrap {
@@ -375,7 +412,7 @@ div.node > .n-left > .n-vote:not(.n-vote-inline) > span.nvb span {
 }
 
 div.node > .n-left > .n-vote:not(.n-vote-inline) > span.votedown {
-  flex-direction: column-reverse;
+  flex-direction: column;
   font-size: 11px;
   font-weight: 400;
 }
@@ -404,6 +441,21 @@ div.n-vote span.votedown,
 div.c-vote span.votedown,
 div.comment span.votedown {
   color: var(--votedown-clr) !important;
+}
+
+/* The live count stays owned by OzBargain, including after a vote. */
+div.n-vote span.nvb.votedown {
+  color: var(--db-muted) !important;
+}
+
+div.n-vote span.nvb.votedown > span {
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+div.n-vote span.nvb.votedown > span::after {
+  content: " neg";
 }
 
 div.n-vote span.nvb:hover,
@@ -562,6 +614,10 @@ div.sidebar ul.meta > li.votes-down {
 
 div.sidebar ul.meta {
   font-size: 11px;
+}
+
+div.sidebar ul.ozblist > li {
+  border-right: 0 !important;
 }
 
 div.sidebar .blockcontent,
