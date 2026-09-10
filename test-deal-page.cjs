@@ -29,6 +29,10 @@ const assert = require('node:assert/strict');
         document.querySelector('#share').addEventListener('click', () => { window.shared = true; });
         document.querySelector('#cashback').addEventListener('click', () => { window.cashbackOpened = true; });
       });
+      // Also cover a deal button rendered below the description, outside the image wrapper.
+      if (headline.startsWith('Free')) {
+        await page.evaluate(() => document.querySelector('.node-page > .n-right').append(document.querySelector('.gotodeal')));
+      }
       const script = readFileSync(`${__dirname}/deal-page.js`, 'utf8');
       await page.addScriptTag({ content: script });
       await page.addScriptTag({ content: script });
@@ -38,6 +42,9 @@ const assert = require('node:assert/strict');
       assert.equal(await page.locator('#sidebar .relatedstores').count(), 1);
       assert.equal(await page.locator('#relatedstores').count(), 0);
       assert.equal(await page.locator('.db-store-card > .gotodeal a').getAttribute('href'), '/goto/1');
+      assert.equal(await page.locator('.node-page .gotodeal').count(), 0);
+      assert.deepEqual(await page.locator('.db-store-card').evaluate(card => [...card.children].map(el => el.className)),
+        ['right', 'cashback', 'relatedstores', 'gotodeal']);
       assert.equal(await page.locator('#title').textContent(), headline);
       await page.locator('.db-store-card > .cashback a').click();
       assert.equal(await page.evaluate(() => window.cashbackOpened), true);

@@ -18,23 +18,23 @@
   // Move the original nodes so IDs, listeners and site-owned state survive.
   body.prepend(title);
   const media = body.querySelector(':scope > .right');
-  const goto = media?.querySelector('.gotodeal');
+  const goto = node.querySelector('.gotodeal');
   const cashback = media?.querySelector('.cashback');
   const submitted = body.querySelector(':scope > .submitted');
 
   const sidebar = document.querySelector('main #sidebar');
   const stores = document.querySelector('section.relatedstores');
-  if (sidebar && (media || stores)) {
+  if (sidebar && (media || stores || goto)) {
     const card = document.createElement('section');
     card.className = 'db-store-card';
     card.setAttribute('aria-label', 'Deal image and stores');
     if (media) card.append(media);
+    if (cashback) card.append(cashback);
     if (stores) {
       card.append(stores);
       document.querySelector('#relatedstores')?.remove();
     }
     if (goto) card.append(goto);
-    if (cashback) card.append(cashback);
     sidebar.prepend(card);
   }
 
