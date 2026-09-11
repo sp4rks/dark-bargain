@@ -22,8 +22,8 @@ Click either screenshot to view it at full size.
   the original deal button share one sidebar panel.
 - **Readable conversations.** Clear reply threads, understated OP badges and a
   more comfortable comment editor.
-- **Less image glare.** Gentle brightness and contrast adjustments, with a small
-  ◐ toggle to show the original. Hover or keyboard focus also restores it.
+- **Less image glare.** Gentle brightness and contrast adjustments. Hover or
+  keyboard focus restores the original.
 
 Prices, conditions and community contributions stay where they belong: in the
 original content. Links, voting, comments and menus retain their existing controls.
@@ -41,7 +41,7 @@ then refresh your OzBargain tabs.
 
 ## Small by design
 
-A stylesheet and two small content scripts. No build step, tracking, external
+A stylesheet and one small content script. No build step, tracking, external
 fonts or image-processing service. The extension runs only on OzBargain and
 requests no additional host permissions. Image adjustments are CSS-only;
 blurred images are left alone.

@@ -16,7 +16,6 @@
         "https://ozbargain.com.au/*"
       ],
       "css": ["dark-bargain.css"],
-      "js": ["image-controls.js"],
       "run_at": "document_start"
     },
     {

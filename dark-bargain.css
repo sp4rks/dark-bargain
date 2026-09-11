@@ -397,35 +397,8 @@ div.node-page div.n-right div.right {
 }
 
 .foxshot-container:not(.blur):hover img,
-.foxshot-container:not(.blur):focus-within img,
-.foxshot-container:not(.blur).db-image-original img {
+.foxshot-container:not(.blur):focus-within img {
   filter: none;
-}
-
-.foxshot-container .db-logo-toggle {
-  position: absolute;
-  right: 4px;
-  bottom: 4px;
-  z-index: 6;
-  width: 26px;
-  height: 26px;
-  padding: 0;
-  border: 1px solid var(--db-line);
-  border-radius: 4px;
-  background: var(--db-surface);
-  color: var(--db-muted);
-  cursor: pointer;
-}
-
-.foxshot-container .db-logo-toggle[aria-pressed="true"] {
-  color: var(--db-orange);
-}
-
-@media (pointer: coarse) {
-  .foxshot-container .db-logo-toggle {
-    min-width: 44px;
-    min-height: 44px;
-  }
 }
 
 div.node-page div.content p,
