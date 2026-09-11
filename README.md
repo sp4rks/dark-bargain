@@ -6,9 +6,13 @@ A calmer dark theme for [OzBargain](https://www.ozbargain.com.au/), built for
 Firefox. Warm charcoal, a little orange, and room to breathe—while keeping the
 dense deal feed and community features that make OzBargain useful.
 
-<!-- Before/after comparison: insert the supplied screenshots here once available
-as docs/images/before.png and docs/images/after.png. Use a two-column Markdown
-table with headings "OzBargain dark mode" and "Dark Bargain". -->
+## Before & after
+
+| OzBargain dark mode | Dark Bargain |
+| --- | --- |
+| [![OzBargain's original dark theme](docs/images/before.png)](docs/images/before.png) | [![Dark Bargain's charcoal theme with compact votes and quieter sidebars](docs/images/after.png)](docs/images/after.png) |
+
+Click either screenshot to view it at full size.
 
 ## A little less noise
 
