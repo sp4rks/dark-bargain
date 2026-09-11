@@ -468,6 +468,15 @@ div.adstest {
 
 /* Vote controls */
 
+/* Only OzBargain's generated defaults; uploaded avatars use /u/. */
+img:is([src^="https://files.ozbargain.com.au/g/"], [src^="//files.ozbargain.com.au/g/"]) {
+  box-sizing: border-box;
+  object-position: -9999px -9999px;
+  background: var(--db-surface-raised) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' fill='none' stroke='%23a9aaa7' stroke-width='1.6' stroke-linecap='round'%3E%3Ccircle cx='20' cy='14' r='5'/%3E%3Cpath d='M10 31v-2a10 10 0 0 1 20 0v2'/%3E%3C/svg%3E") center / contain no-repeat !important;
+  border: 1px solid var(--db-line) !important;
+  border-radius: 6px;
+}
+
 div.node > .n-left > img.gravatar {
   display: none;
 }
