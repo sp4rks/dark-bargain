@@ -16,6 +16,7 @@ html {
   --db-leading: 1.5;
   --db-leading-title: 1.4;
   --db-image-brightness: 0.75;
+  --db-image-contrast: 0.95;
   --page-font: var(--db-size-body) !important;
   --db-bg: #171819;
   --db-surface: #202223;
@@ -392,37 +393,13 @@ div.node-page div.n-right div.right {
 
 /* Leave the site's blurred-image treatment intact. */
 .foxshot-container:not(.blur) img {
-  filter: brightness(var(--db-image-brightness));
+  filter: brightness(var(--db-image-brightness)) contrast(var(--db-image-contrast));
 }
 
 .foxshot-container:not(.blur):hover img,
-.foxshot-container:not(.blur):focus-within img {
-  filter: brightness(1);
-}
-
-.foxshot-container > a.db-logo-link {
-  position: relative;
-}
-
-.foxshot-container img.db-logo-original-hidden {
-  opacity: 0;
-}
-
-.foxshot-container img.db-logo-show-original {
-  filter: none !important;
-}
-
-.db-logo-cutout {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  pointer-events: none;
-}
-
-.db-logo-cutout[hidden] {
-  display: none;
+.foxshot-container:not(.blur):focus-within img,
+.foxshot-container:not(.blur).db-image-original img {
+  filter: none;
 }
 
 .foxshot-container .db-logo-toggle {

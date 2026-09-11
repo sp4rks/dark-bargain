@@ -3,8 +3,6 @@
   "name": "Dark Bargain",
   "description": "A calmer dark theme for OzBargain.",
   "version": "0.1.0",
-  "host_permissions": ["https://files.ozbargain.com.au/*"],
-  "background": { "scripts": ["image-fetch.js"] },
   "browser_specific_settings": {
     "gecko": {
       "id": "dark-bargain@local",
@@ -18,7 +16,7 @@
         "https://ozbargain.com.au/*"
       ],
       "css": ["dark-bargain.css"],
-      "js": ["image-cutout.js", "image-controls.js"],
+      "js": ["image-controls.js"],
       "run_at": "document_start"
     },
     {
