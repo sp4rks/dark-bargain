@@ -15,6 +15,7 @@ html {
   --db-weight-strong: 600;
   --db-leading: 1.5;
   --db-leading-title: 1.4;
+  --db-image-brightness: 0.88;
   --page-font: var(--db-size-body) !important;
   --db-bg: #171819;
   --db-surface: #202223;
@@ -387,6 +388,16 @@ div.node-page div.foxshot-container a {
 
 div.node-page div.n-right div.right {
   margin-left: 22px;
+}
+
+/* Leave the site's blurred-image treatment intact. */
+.foxshot-container:not(.blur) img {
+  filter: brightness(var(--db-image-brightness));
+}
+
+.foxshot-container:not(.blur):hover img,
+.foxshot-container:not(.blur):focus-within img {
+  filter: brightness(1);
 }
 
 div.node-page div.content p,
