@@ -1,20 +1,54 @@
 # Dark Bargain
 
-A small Firefox extension that gives OzBargain a warmer, calmer dark theme. It
-uses a shared stylesheet and a small deal-page script that moves existing
-elements. Links, voting, comments and menus retain their original controls.
+**Same bargains. Easier on the eyes.**
 
-## Install locally
+A calmer dark theme for [OzBargain](https://www.ozbargain.com.au/), built for
+Firefox. Warm charcoal, a little orange, and room to breathe—while keeping the
+dense deal feed and community features that make OzBargain useful.
 
-1. Open `about:debugging#/runtime/this-firefox` in Firefox.
-2. Choose **Load Temporary Add-on…**.
-3. Select [`manifest.json`](./manifest.json).
-4. Open or reload an OzBargain page.
+<!-- Before/after comparison: insert the supplied screenshots here once available
+as docs/images/before.png and docs/images/after.png. Use a two-column Markdown
+table with headings "OzBargain dark mode" and "Dark Bargain". -->
 
-The extension runs on `ozbargain.com.au` and needs no additional host permissions.
-Images use CSS brightness and contrast adjustments, with a small ◐ toggle to keep
-the original visible. Hover or keyboard focus temporarily restores the original.
-Blurred images are left alone. No image fetching or pixel processing is performed.
+## A little less noise
 
-Deal pages group the product image, store details, original deal link and cashback
-control in the sidebar. Prices and offer conditions remain in the full headline.
+- **A cleaner feed.** Compact vote controls, consistent typography and subtle
+  badges make deals easier to scan.
+- **Deal pages with everything in reach.** Product image, vendor, cashback and
+  the original deal button share one sidebar panel.
+- **Readable conversations.** Clear reply threads, understated OP badges and a
+  more comfortable comment editor.
+- **Less image glare.** Gentle brightness and contrast adjustments, with a small
+  ◐ toggle to show the original. Hover or keyboard focus also restores it.
+
+Prices, conditions and community contributions stay where they belong: in the
+original content. Links, voting, comments and menus retain their existing controls.
+
+## Try it in Firefox
+
+1. Download or clone this repository. If you download a ZIP, extract it first.
+2. Open `about:debugging#/runtime/this-firefox` in Firefox.
+3. Choose **Load Temporary Add-on…** and select [`manifest.json`](./manifest.json).
+4. Open or refresh OzBargain.
+
+This is a temporary installation: Firefox removes it when the browser restarts.
+After updating the files, click **Reload** beside Dark Bargain in `about:debugging`,
+then refresh your OzBargain tabs.
+
+## Small by design
+
+A stylesheet and two small content scripts. No build step, tracking, external
+fonts or image-processing service. The extension runs only on OzBargain and
+requests no additional host permissions. Image adjustments are CSS-only;
+blurred images are left alone.
+
+Want to tweak it? Colours, typography and image brightness are defined together
+at the top of [`dark-bargain.css`](./dark-bargain.css).
+
+## Feedback
+
+Found an awkward corner? [Open an issue](https://github.com/sp4rks/dark-bargain/issues)
+with the page URL and a screenshot. OzBargain has plenty of different page layouts,
+and this is still a work in progress.
+
+Independent project; not affiliated with OzBargain. Licensed under [MIT](./LICENSE).
