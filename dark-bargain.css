@@ -15,7 +15,7 @@ html {
   --db-weight-strong: 600;
   --db-leading: 1.5;
   --db-leading-title: 1.4;
-  --db-image-brightness: 0.88;
+  --db-image-brightness: 0.75;
   --page-font: var(--db-size-body) !important;
   --db-bg: #171819;
   --db-surface: #202223;
